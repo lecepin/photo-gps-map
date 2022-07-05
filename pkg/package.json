@@ -1,0 +1,15 @@
+{
+  "name": "photo-gps-map",
+  "collaborators": [
+    "lecepin"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "photo_gps_map_bg.wasm",
+    "photo_gps_map.js",
+    "photo_gps_map.d.ts"
+  ],
+  "module": "photo_gps_map.js",
+  "types": "photo_gps_map.d.ts",
+  "sideEffects": false
+}
