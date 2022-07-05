@@ -9,7 +9,6 @@
   <body>
     <script type="module">
       import init, { greet } from "./pkg/photo_gps_map.js";
-      document.body.remove();
       init().then(() => {
         greet();
       });
