@@ -14,6 +14,14 @@ default = ["console_error_panic_hook"]
 wasm-bindgen = "0.2.81"
 console_error_panic_hook = { version = "0.1.7", optional = true }
 wee_alloc = { version = "0.4.5", optional = true }
+web-sys = { version = "0.3.58", features = [
+    'Document',
+    'Element',
+    'HtmlElement',
+    'Node',
+    'Window',
+    "console"
+] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
