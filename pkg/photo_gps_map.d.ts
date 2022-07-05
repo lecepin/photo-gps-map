@@ -1,8 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
+* @param {Uint8Array} raw
+* @returns {any}
 */
-export function greet(): void;
+export function get_exif(raw: Uint8Array): any;
 /**
 */
 export function run(): void;
@@ -11,12 +13,9 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly greet: () => void;
+  readonly get_exif: (a: number, b: number) => number;
   readonly run: () => void;
-  readonly __wbindgen_free: (a: number, b: number) => void;
   readonly __wbindgen_malloc: (a: number) => number;
-  readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
-  readonly __wbindgen_exn_store: (a: number) => void;
   readonly __wbindgen_start: () => void;
 }
 
