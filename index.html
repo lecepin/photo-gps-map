@@ -7,10 +7,49 @@
     <title>Photo-GPS-Maps</title>
   </head>
   <body>
+    <h1>Get Photo Exif Info</h1>
+    <input type="file" id="img_file" accept="image/*" />
+    <div id="result"></div>
+
     <script type="module">
-      import init, { greet } from "./pkg/photo_gps_map.js";
+      import init, { get_exif } from "./pkg/photo_gps_map.js";
       init().then(() => {
-        greet();
+        document.getElementById("img_file").onchange = (e) => {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+
+          reader.onloadend = (evt) => {
+            try {
+              // arraybuffer 转成 vec[u8]
+              const u8buffer = new Uint8Array(evt.target.result);
+
+              console.time("执行 get_exif 时间");
+              const result = get_exif(u8buffer);
+              console.timeEnd("执行 get_exif 时间");
+
+              console.log({ result });
+              document.getElementById("result").innerHTML = `<table border="1">
+                ${result
+                  .map(
+                    (item) =>
+                      `<tr><td>${item.tag}</td><td>${item.value_with_unit}</td></tr>`
+                  )
+                  .join("")}
+                </table>
+                <img src="${URL.createObjectURL(
+                  new Blob([file], { type: file.type })
+                )}" style="max-width: 35%;
+                  position: absolute;
+                  top: 30px;
+                  right: 30px;"
+                />`;
+            } catch (error) {
+              console.log({ error });
+              alert("非有效图片文件");
+            }
+          };
+          reader.readAsArrayBuffer(file);
+        };
       });
     </script>
   </body>
