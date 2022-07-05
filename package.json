@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "wasm-pack build --target web",
-    "pages": "npm run build && gh-pages --repo https://github.com/lecepin/photo-gps-map"
+    "pages": "npm run build && gh-pages --dist . --dest . --repo https://github.com/lecepin/photo-gps-map"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
