@@ -16,6 +16,8 @@ export interface InitOutput {
   readonly get_exif: (a: number, b: number) => number;
   readonly run: () => void;
   readonly __wbindgen_malloc: (a: number) => number;
+  readonly __wbindgen_free: (a: number, b: number) => void;
+  readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
   readonly __wbindgen_start: () => void;
 }
 
