@@ -39,5 +39,5 @@ pub fn get_exif(raw: Vec<u8>) -> JsValue {
 
 #[wasm_bindgen(start)]
 pub fn run() {
-    // utils::set_panic_hook();
+    utils::set_panic_hook();
 }
